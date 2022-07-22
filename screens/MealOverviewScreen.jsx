@@ -1,12 +1,13 @@
-import { MEALS } from '../data/dummy_data'
+import { MEALS, CATEGORIES } from '../data/dummy_data'
 import { View, StyleSheet } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler';
 import MealItem from '../components/MealItem';
 
-function MealsOverviewScreen({ route })
+function MealsOverviewScreen({ route, navigation })
 {
     const categoryId = route.params.categoryId;
-
+    const title = route.params.title;
+    navigation.setOptions({ title: title })
     const displayedMeals = MEALS.filter((mealItem) =>
     {
         return mealItem.categoryIds.indexOf(categoryId) >= 0;

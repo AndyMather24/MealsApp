@@ -15,7 +15,8 @@ function CategoriesScreen({ navigation, })
         function pressHandler()
         {
             navigation.navigate("MealsOverview", {
-                categoryId: itemData.item.id
+                categoryId: itemData.item.id,
+                title: itemData.item.title
             })
 
 
