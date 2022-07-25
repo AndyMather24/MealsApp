@@ -32,8 +32,19 @@ function MealsOverviewScreen({ route, navigation })
             complexity: item.complexity,
             duration: item.duration,
         }
+        function pressHandler()
+        {
+            navigation.navigate("mealsDetail", {
+                mealId: item.id,
+                imageUrl: item.imageUrl,
+                steps: item.steps,
+                ingredients: item.ingredients
+
+            })
+        }
         return <MealItem
             {...mealItemProps}
+            onPress={pressHandler}
         />
     }
 
@@ -51,7 +62,7 @@ function MealsOverviewScreen({ route, navigation })
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16
+        margin: 20
     }
 })
 

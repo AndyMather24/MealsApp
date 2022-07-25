@@ -1,14 +1,14 @@
 import { Text, View, Image, StyleSheet, Pressable } from 'react-native'
 
 
-function MealItem({ title, imageUrl, affordability, complexity, duration })
+function MealItem({ title, imageUrl, affordability, complexity, duration, onPress })
 {
 
 
 
     return (
         <View style={styles.tile}>
-            <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => [styles.pressable, pressed ? styles.buttonPressed : null]}>
+            <Pressable onPress={onPress} android_ripple={{ color: '#ccc' }} style={({ pressed }) => [styles.pressable, pressed ? styles.buttonPressed : null]}>
                 <View style={styles.titleContainer} >
                     <Image style={styles.image} source={{ url: imageUrl }} />
                     <Text style={styles.title}>
@@ -23,7 +23,6 @@ function MealItem({ title, imageUrl, affordability, complexity, duration })
                     <Text style={styles.criteriaText}>
                         {complexity.toUpperCase()}
                     </Text>
-
                     <Text style={styles.criteriaText}>
                         {duration}m
                     </Text>
